@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:food_app/pages/favourite_page.dart';
 import 'package:food_app/pages/home_screen.dart';
 
@@ -14,7 +12,7 @@ class BottomNavigationTab extends StatefulWidget {
 class _BottomNavigationTabState extends State<BottomNavigationTab> {
 
   final _pages = [
-      const  HomePage(),
+      HomePage(),
     const FavouritePage(),
  
   ];

@@ -12,6 +12,6 @@ class Recipe{
   final Price? price;
   final List<String>? category;
   final String? imageUrl;
-
-  const Recipe({@required this.imageUrl,@required this.ingredient,@required this.price,@required this.title,@required this.category});
+   final bool? isVegan;
+   const Recipe({@required this.imageUrl,@required this.ingredient,@required this.price,@required this.title,@required this.category,this.isVegan});
 }

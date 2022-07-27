@@ -5,9 +5,11 @@ import 'package:food_app/widgets/drawer_widget.dart';
 
 
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class HomePage extends StatelessWidget {
         gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
         children: DUMMY_DATA.map(
           (catData){
-            print(catData.id);
+            
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: CategoryItem(color: catData.color, title: catData.title,id:catData.id),

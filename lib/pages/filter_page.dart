@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:food_app/recipe_list.dart';
+import 'recipe_page.dart';
 
 class FilterPage extends StatefulWidget {
-  const FilterPage({Key? key}) : super(key: key);
-
+  final Function _filterData;
+  final Map<String,bool> _currentFilter;
+  FilterPage(this._filterData,this._currentFilter);
   @override
   State<FilterPage> createState() => _FilterPageState();
 }
@@ -13,10 +14,27 @@ class _FilterPageState extends State<FilterPage> {
   bool isVegan = false;
   bool isGlutenFree = false;
   bool isVegetarian =  false;
+
+
+@override
+  void initState() {
+    isVegan = widget._currentFilter["vegan"]!;
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Filter"),),
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            final _selectedFilter = {
+            "vegan":isVegan
+            };
+              widget._filterData(_selectedFilter);
+          }, icon: const Icon(Icons.save))
+        ],
+        title: const Text("Filter"),),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
